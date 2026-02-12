@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Doom Fit - أقراص فوارة للتخسيس والطاقة. Effervescent tablets for weight loss and energy.">
+    <title>Doom Fit | Advanced Weight Loss Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS: Adaptado para Doom Fit (Fitness/Energy Theme) --- */
+        
+        :root {
+            /* Cores extraídas da embalagem */
+            --primary-color: #ef5da8; /* Rosa/Coral vibrante */
+            --primary-dark: #c2185b;
+            --secondary-color: #1a2a3a; /* Azul Escuro do fundo */
+            --accent-gold: #f1c40f; 
+            --text-light: #ecf0f1;
+            --text-dark: #2c3e50;
+            --bg-light: #f4f7f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif; /* Fonte otimizada para Árabe */
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Botão CTA */
+        .btn-cta {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+            color: #fff;
+            padding: 18px 45px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            box-shadow: 0 4px 15px rgba(239, 93, 168, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid rgba(255,255,255,0.2);
+            animation: pulse 2s infinite;
+            margin-top: 15px;
+            cursor: pointer; /* Garante o cursor de mãozinha */
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(239, 93, 168, 0.6);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(239, 93, 168, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(239, 93, 168, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 93, 168, 0); }
+        }
+
+        /* Preço Box */
+        .price-tag {
+            background: #fff;
+            color: var(--text-dark);
+            padding: 15px 30px;
+            border-radius: 15px;
+            display: inline-block;
+            margin: 20px 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 2px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .discount-badge {
+            background: var(--accent-gold);
+            color: #000;
+            font-weight: bold;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.2rem;
+        }
+
+        .new-price {
+            color: var(--primary-color);
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .logo span { color: var(--primary-color); }
+
+        nav ul { list-style: none; display: flex; gap: 20px; }
+        nav a { text-decoration: none; color: var(--secondary-color); font-weight: 700; font-size: 1.1rem; transition: color 0.3s; }
+        nav a:hover { color: var(--primary-color); }
+        
+        /* Hero */
+        .hero {
+            /* Fundo gradiente baseado no visual "Deep Blue" das imagens */
+            background: radial-gradient(circle at center, #2c3e50 0%, #1a252f 100%);
+            padding: 140px 0 80px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz48L3N2Zz4='); /* Texture dot subtle */
+            opacity: 0.3;
+            z-index: 1; /* Fica atrás do conteúdo */
+        }
+
+        /* CORREÇÃO DO BOTÃO CLICÁVEL: Traz o conteúdo para frente */
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 { 
+            font-size: 3rem; 
+            margin-bottom: 15px; 
+            color: #fff; 
+            line-height: 1.2; 
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero p { font-size: 1.3rem; max-width: 700px; margin: auto; color: #dcdcdc; }
+        
+        .product-hero-img {
+            max-width: 100%;
+            height: auto;
+            max-height: 550px;
+            margin: 30px 0;
+            filter: drop-shadow(0 0 30px rgba(239, 93, 168, 0.3)); /* Glow rosa suave */
+            transition: transform 0.5s;
+        }
+        
+        .product-hero-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Seções Gerais */
+        section { padding: 70px 0; }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 800;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Cards de Benefícios */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .benefit-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover { transform: translateY(-5px); }
+        .benefit-card h3 { color: var(--primary-color); font-size: 1.4rem; margin-bottom: 10px; }
+        .benefit-number {
+            background: var(--primary-color);
+            color: white;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: bold; margin: 0 auto 15px;
+        }
+
+        /* Ingredientes */
+        .ingredientes { background: var(--bg-light); }
+        .ingredient-icon { font-size: 2.5rem; margin-bottom: 10px; display: block; }
+        
+        /* Sintomas / Para quem é */
+        .target-box {
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 20px;
+        }
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .target-item img { width: 100%; border-radius: 10px; margin-bottom: 10px; max-height: 150px; object-fit: cover; }
+        
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .testimonial-card {
+            background: var(--secondary-color);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+        }
+        .user-avatar {
+            width: 70px; height: 70px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background: #151e26;
+            color: #bdc3c7;
+            padding: 50px 0;
+            text-align: center;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            nav ul { display: none; }
+            .container { flex-direction: column; }
+            .btn-cta { width: 100%; text-align: center; padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">DOOM<span>FIT</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#benefits">الفوائد (Benefits)</a></li>
+                    <li><a href="#ingredients">المكونات (Ingredients)</a></li>
+                    <li><a href="#usage">الاستخدام (Usage)</a></li>
+                    <li><a href="https://m4gia.doctorovtech.com/l" style="color: var(--primary-color);">اطلب الآن (Order)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container" style="flex-direction: column;">
+            <span style="background: var(--primary-color); color: white; padding: 5px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; margin-bottom: 15px; display: inline-block;">SUGAR FREE • FORTIFIED WITH VITAMINS</span>
+            
+            <h1>الحل الأسرع لحرق الدهون<br><span style="font-size: 1.8rem; color: #ef9ad1;">(The Fastest Fat Burning Solution)</span></h1>
+            
+            <p>تركيبة فوارة متطورة للطاقة والتحمل وخسارة الوزن<br>(Advanced effervescent formula for energy, endurance, and weight loss)</p>
+            
+            <img src="Doom Fit.png" alt="Doom Fit Effervescent Tablets" class="product-hero-img">
+
+            <div class="price-tag">
+                <span class="discount-badge">50% OFF TODAY</span>
+                <span class="old-price">798 ILS</span>
+                <div class="new-price">399 ILS</div>
+                <p style="font-size: 0.9rem; color: #555;">Cash on Delivery Available in Israel (IL)</p>
+            </div>
+
+            <br>
+            <a href="https://m4gia.doctorovtech.com/l" class="btn-cta">اطلب الآن (ORDER NOW)</a>
+        </div>
+    </section>
+
+    <section id="benefits">
+        <div class="container" style="flex-direction: column;">
+            <h2 class="section-title">لماذا تختار Doom Fit؟<br><span style="font-size: 1.3rem; color: #777;">(Why Choose Doom Fit?)</span></h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-number">1</div>
+                    <h3>تركيبة طبيعية<br>(Natural Formula)</h3>
+                    <p>مزيج قوي من مستخلصات الشاي الأخضر، القهوة الخضراء، والجارسينيا لدعم عملية الأيض وحرق الدهون.</p>
+                    <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">(Powerful blend of Green Tea, Green Coffee, and Garcinia for metabolism and fat burning).</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-number">2</div>
+                    <h3>الطاقة والتحمل<br>(Energy & Endurance)</h3>
+                    <p>كارنيتين الذي يساعد في تحويل الدهون إلى طاقة، مما يزيد من قدرتك على التحمل والنشاط.</p>
+                    <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">(L-Carnitine helps convert fat into energy, increasing endurance and activity).</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-number">3</div>
+                    <h3>تعافي وبناء العضلات<br>(Muscle Recovery)</h3>
+                    <p>جلوتامين، والأمينو أسيد الأساسي مدعم ل بناء العضلات والتعافي السريع بعد التمرين.</p>
+                    <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">(Glutamine and essential amino acids support muscle building and rapid recovery).</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-number">4</div>
+                    <h3>تعزيز المناعة<br>(Immunity Boost)</h3>
+                    <p>غني بفيتامين C الذي يعمل على تقوية جهاز المناعة وحماية جسمك من الأمراض.</p>
+                    <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">(Rich in Vitamin C to strengthen the immune system and protect your body).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: var(--secondary-color); color: white;">
+        <div class="container" style="flex-direction: column;">
+            <h2 class="section-title" style="color: white; border-color: white;">مثالي لـ:<br><span style="font-size: 1.3rem; color: #ddd;">(Ideal For:)</span></h2>
+            
+            <div class="target-grid">
+                <div style="padding: 20px;">
+                    <span style="font-size: 3rem;">🏋️</span>
+                    <h3>الرياضيين<br>(Athletes)</h3>
+                    <p>احصل على الطاقة والتحمل اللازمين لتحقيق أقصى أداء.</p>
+                </div>
+                <div style="padding: 20px;">
+                    <span style="font-size: 3rem;">🥗</span>
+                    <h3>متبعي الحمية<br>(Dieters)</h3>
+                    <p>يساعدك دوم فيت على التحكم في الوزن ودعم جهودك بطريقة صحية.</p>
+                </div>
+                <div style="padding: 20px;">
+                    <span style="font-size: 3rem;">⚡</span>
+                    <h3>النشاط اليومي<br>(Daily Energy)</h3>
+                    <p>الأسرع بحرق الدهون، الأسرع بالتنحيف.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ingredients" class="ingredientes">
+        <div class="container" style="flex-direction: column;">
+            <h2 class="section-title">مكونات فعالة<br><span style="font-size: 1.2rem; color: #555;">(Active Ingredients)</span></h2>
+            <div class="benefits-grid">
+                <div class="benefit-card" style="border-top-color: #27ae60;">
+                    <span class="ingredient-icon">🍵</span>
+                    <h3>Green Tea & Green Coffee</h3>
+                    <p>مضادات أكسدة قوية تعزز عملية التمثيل الغذائي.</p>
+                </div>
+                <div class="benefit-card" style="border-top-color: #e67e22;">
+                    <span class="ingredient-icon">🍋</span>
+                    <h3>L-Carnitine & Vitamin C</h3>
+                    <p>تحويل الدهون لطاقة ورفع المناعة.</p>
+                </div>
+                <div class="benefit-card" style="border-top-color: #8e44ad;">
+                    <span class="ingredient-icon">🍇</span>
+                    <h3>Garcinia Cambogia</h3>
+                    <p>تساعد في سد الشهية وحرق الدهون المخزنة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container" style="flex-direction: column;">
+            <h2 class="section-title">ماذا يقول عملاؤنا؟<br><span style="font-size: 1.2rem;">(What our clients say)</span></h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="user-avatar">👱‍♀️</div>
+                    <p style="font-style: italic;">"من وقت ما بلشت أخذ دووم فيت، حسيت فرق كبير بالطاقة خلال التمرين. عن جد، ما كنت متوقعه هالنتيجة بهالسرعة!"</p>
+                    <h4 style="margin-top: 15px; color: var(--primary-color);">سارة العيسى (Sarah)</h4>
+                </div>
+                <div class="testimonial-card">
+                    <div class="user-avatar">👩</div>
+                    <p style="font-style: italic;">"دووم فيت ساعدني بشكل رهيب في خسارة الوزن. صار جزء من روتيني اليومي وما أقدر أستغني عنه."</p>
+                    <h4 style="margin-top: 15px; color: var(--primary-color);">تالا القحطاني (Tala)</h4>
+                </div>
+                <div class="testimonial-card">
+                    <div class="user-avatar">👩‍🦱</div>
+                    <p style="font-style: italic;">"مرة أحب طعم البرتقال الطبيعي، والأهم إني أحس نفسي أصح وأقوى كل يوم."</p>
+                    <h4 style="margin-top: 15px; color: var(--primary-color);">ليان العتيبي (Layan)</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="usage" style="background: #fdfbfb;">
+        <div class="container" style="flex-direction: column;">
+            <h2 class="section-title">سهل الاستخدام<br><span style="font-size: 1.2rem;">(Easy to Use)</span></h2>
+            
+            <div style="display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; text-align: center;">
+                <div style="background: white; padding: 30px; border-radius: 10px; width: 280px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">💧</div>
+                    <h3>200 ml</h3>
+                    <p>قم بإذابة قرص فوار واحد في 200 مل من الماء.</p>
+                    <p style="color: #777; font-size: 0.85rem;">(Dissolve 1 tablet in 200ml water).</p>
+                </div>
+                <div style="background: white; padding: 30px; border-radius: 10px; width: 280px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🗓️</div>
+                    <h3>Daily</h3>
+                    <p>يُشرب مرة واحدة يوميًا للحصول على أفضل النتائج.</p>
+                    <p style="color: #777; font-size: 0.85rem;">(Drink once daily for best results).</p>
+                </div>
+                <div style="background: white; padding: 30px; border-radius: 10px; width: 280px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">✅</div>
+                    <h3>11+ Years</h3>
+                    <p>مناسب للبالغين ومَن هم فوق سن 11 عامًا.</p>
+                    <p style="color: #777; font-size: 0.85rem;">(Suitable for adults and ages 11+).</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <span style="background: #eee; padding: 10px 20px; border-radius: 5px;">⚠️ بدون آثار جانبية (No Side Effects)</span>
+                <span style="background: #eee; padding: 10px 20px; border-radius: 5px;">🔬 مختبر علمياً (Scientifically Tested)</span>
+                <span style="background: #eee; padding: 10px 20px; border-radius: 5px;">🌿 طبيعي 100% (100% Natural)</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="comprar" style="background: var(--secondary-color); color: white; padding: 80px 0;">
+        <div class="container" style="justify-content: center;">
+            <div style="background: #fff; color: var(--text-dark); padding: 40px; border-radius: 20px; max-width: 600px; width: 100%; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.4);">
+                <h2 style="color: var(--secondary-color); margin-bottom: 10px;">Doom Fit - [IL]</h2>
+                <p style="color: var(--primary-color); font-weight: bold;">LIMITED STOCK IN ISRAEL</p>
+                
+                <div class="price-tag" style="background: #f9f9f9; width: 100%; border: none;">
+                    <p style="color: #666;">Special Price:</p>
+                    <span class="old-price">798 ILS</span>
+                    <span class="new-price" style="color: var(--primary-color);">399 ILS</span>
+                </div>
+
+                <div style="margin: 20px 0; text-align: right; padding-right: 20px; direction: rtl;">
+                    <p>✅ <strong>الدفع عند الاستلام (Cash on Delivery)</strong></p>
+                    <p>✅ تركيبة مدعمة بالفيتامينات (Fortified with Vitamins)</p>
+                    <p>✅ خالٍ من السكر (Sugar Free)</p>
+                </div>
+
+                <a href="https://m4gia.doctorovtech.com/l" class="btn-cta" style="width: 100%;">اطلب الآن (ORDER NOW)</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="flex-direction: column;">
+            <p>&copy; 2026 Life Stream - Doom Fit. All rights reserved.</p>
+            <div style="margin-top: 20px; color: #7f8c8d; font-size: 0.75rem; text-align: center; max-width: 800px;">
+                <p><strong>Disclaimer:</strong> This product is a food supplement (Dietary Supplement). Results may vary from person to person. Not intended to diagnose, treat, cure, or prevent any disease.</p>
+                <p>Call center working hours: 9:00 - 22:30, local time.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
